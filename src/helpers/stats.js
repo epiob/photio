@@ -15,6 +15,7 @@ async function imageTotalViewsCounter(){
         _id: '1',
         viewstotal: {$sum: '$views'}
     }}]);
+    if(result > 0)
     return result[0].viewstotal;
 
 }
@@ -22,10 +23,12 @@ async function imageTotalViewsCounter(){
 async function likesTotalCounter(){
 const result = await Image.aggregate([{$group: {
     _id: '1',
+    
     likesTotal: {$sum: '$likes'}
 
 
 }}]);
+if (result > 0)
 return result[0].likesTotal;
 
 }
